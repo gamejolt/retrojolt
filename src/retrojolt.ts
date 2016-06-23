@@ -47,9 +47,13 @@ class RetroJolt
 		};
 
 		const config = extend( defaults, options );
-
 		const romFile = config.rom.split( '/' ).pop();
 		let args: any[] = [];
+
+		// Emularity saves files to an indexeddb and it makes it really hard
+		// to update configs and bios files. Clearing it every time allows us
+		// to change it knowing that the emulation will use the new files.
+		window.indexedDB.deleteDatabase( 'emularity' );
 
 		args.push( JSMESSLoader.driver( config.driver ) );
 		args.push( JSMESSLoader.nativeResolution( config.resolution[0], config.resolution[1] ) );
