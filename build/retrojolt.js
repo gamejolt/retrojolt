@@ -4014,9 +4014,14 @@ var RetroJolt = (function () {
                 args.push(JSMESSLoader.peripheral(peripheral, romFile));
             }
         }
-        if (config.args && config.args.length > 0) {
-            args.push(JSMESSLoader.extraArgs(config.args));
+        if (!config.args || !config.args.length) {
+            config.args = [];
         }
+        config.args.push('-ctrlrpath');
+        config.args.push('emulator');
+        config.args.push('-ctrlr');
+        config.args.push('default');
+        args.push(JSMESSLoader.extraArgs(config.args));
         this.emulator = new Emulator(document.querySelector(config.target), null, JSMESSLoader.apply(null, args))
             .setScale(config.scale)
             .setSplashImage(config.loadingImg)
