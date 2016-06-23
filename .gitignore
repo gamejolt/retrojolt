@@ -1,1 +1,6 @@
 node_modules
+
+# Bios Files
+/test/gb/gameboy.zip
+/test/gbcolor/gbcolor.zip
+/test/gba/gba.zip

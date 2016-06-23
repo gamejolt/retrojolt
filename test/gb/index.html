@@ -11,13 +11,14 @@
 		<script type="text/javascript">
 			var emulator = new RetroJolt( {
 				loadingImg: '../../src/loading.gif',
-				scale: 3,
-				js: '../../drivers/mamea2600.js',
-				driver:  'a2600',
-				cfg: '../../cfg/a2600.cfg',
+				scale: 4,
+				js: '../../drivers/mamegb.js',
+				driver: 'gameboy',
+				bios: [ './gameboy.zip' ],
+				cfg: '../../cfg/gameboy.cfg',
 				peripherals: [ 'cart' ],
-				resolution: [ 176, 223 ],
-				rom: './avalanche.a26',
+				resolution: [ 160, 144 ],
+				rom: './kingdom.gb',
 			} );
 		</script>
 	</body>

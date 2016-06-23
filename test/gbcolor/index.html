@@ -11,13 +11,14 @@
 		<script type="text/javascript">
 			var emulator = new RetroJolt( {
 				loadingImg: '../../src/loading.gif',
-				scale: 3,
-				js: '../../drivers/mamea2600.js',
-				driver:  'a2600',
-				cfg: '../../cfg/a2600.cfg',
+				scale: 4,
+				js: '../../drivers/mamegbc.js',
+				driver: 'gbcolor',
+				bios: [ './gbcolor.zip' ],
+				cfg: '../../cfg/gbcolor.cfg',
 				peripherals: [ 'cart' ],
-				resolution: [ 176, 223 ],
-				rom: './avalanche.a26',
+				resolution: [ 160, 144 ],
+				rom: './snake.gbc',
 			} );
 		</script>
 	</body>

@@ -11,13 +11,13 @@
 		<script type="text/javascript">
 			var emulator = new RetroJolt( {
 				loadingImg: '../../src/loading.gif',
-				scale: 3,
-				js: '../../drivers/mamea2600.js',
-				driver:  'a2600',
-				cfg: '../../cfg/a2600.cfg',
+				js: '../../drivers/mamevirtualboy.js',
+				driver: 'vboy',
+				bios: [ './vboy.zip' ],
+				cfg: '../../cfg/vboy.cfg',
 				peripherals: [ 'cart' ],
-				resolution: [ 176, 223 ],
-				rom: './avalanche.a26',
+				resolution: [ 384 * 2, 224 ],
+				rom: './game.vb',
 			} );
 		</script>
 	</body>
