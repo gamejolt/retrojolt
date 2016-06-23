@@ -1,0 +1,6 @@
+[submodule "mame"]
+	path = mame
+	url = https://github.com/mamedev/mame.git
+[submodule "vendor/emularity"]
+	path = vendor/emularity
+	url = git@github.com:gamejolt/emularity.git
