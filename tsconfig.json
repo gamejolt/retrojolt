@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+        "moduleResolution": "node",
+        "removeComments": true,
+        "noImplicitAny": true,
+		"allowUnreachableCode": true,
+        "allowJs": true,
+		"outFile": "build/retrojolt.js"
+	},
+	"files": [
+		"vendor/emularity/es6-promise.js",
+		"vendor/emularity/browserfs.js",
+		"vendor/emularity/loader.js",
+		"src/retrojolt.ts"
+	]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "retrojolt",
+  "version": "0.1.0",
+  "description": "This is Retro",
+  "main": "build/retrojolt.js",
+  "scripts": {
+	  "build": "./node_modules/.bin/tsc -p tsconfig.json",
+	  "start": "./node_modules/.bin/http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gamejolt/retrojolt.git"
+  },
+  "author": "Game Jolt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gamejolt/retrojolt/issues"
+  },
+  "homepage": "https://github.com/gamejolt/retrojolt#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "typescript": "^1.8.10"
+  }
+}
