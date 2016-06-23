@@ -3997,6 +3997,7 @@ var RetroJolt = (function () {
         var config = extend(defaults, options);
         var romFile = config.rom.split('/').pop();
         var args = [];
+        window.indexedDB.deleteDatabase('emularity');
         args.push(JSMESSLoader.driver(config.driver));
         args.push(JSMESSLoader.nativeResolution(config.resolution[0], config.resolution[1]));
         args.push(JSMESSLoader.emulatorJS(config.js));
