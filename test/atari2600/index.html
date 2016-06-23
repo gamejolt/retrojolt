@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Test</title>
+	</head>
+	<body>
+		<canvas id="emulator-target" style="width: 50%; height: 50%; display: block; margin: 0 auto;"></canvas>
+		<script type="text/javascript" src="../../vendor/emularity/es6-promise.js"></script>
+		<script type="text/javascript" src="../../vendor/emularity/browserfs.js"></script>
+		<script type="text/javascript" src="../../vendor/emularity/loader.js"></script>
+		<script type="text/javascript" src="../../src/retrojolt.js"></script>
+		<script type="text/javascript">
+			var emulator = new RetroJolt( {
+				scale: 3,
+				js: '../../drivers/mamea2600.js',
+				loadingImg: '../../src/loading.gif',
+				driver:  'a2600',
+				cfg: '../../cfg/a2600.cfg',
+				peripherals: [ 'cart' ],
+				resolution: [ 176, 223 ],
+				rom: './avalanche.bin',
+			} );
+		</script>
+	</body>
+</html>
