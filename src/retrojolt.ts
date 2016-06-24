@@ -61,7 +61,8 @@ class RetroJolt
 
 		if ( config.bios ) {
 			for ( let i = 0; i < config.bios.length; ++i ) {
-				args.push( JSMESSLoader.mountFile( config.bios[ i ], JSMESSLoader.fetchFile( 'Bios File (' + (i + 1) + ')', config.bios[ i ] ) ) );
+				const biosFile = config.bios[ i ].split( '/' ).pop();
+				args.push( JSMESSLoader.mountFile( biosFile, JSMESSLoader.fetchFile( 'Bios File (' + (i + 1) + ')', config.bios[ i ] ) ) );
 			}
 		}
 
