@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>test</title>
+	</head>
+	<body>
+		<canvas id="emulator-target" style="width: 50%; height: 50%; display: block; margin: 0 auto;"></canvas>
+		<script type="text/javascript" src="../../build/retrojolt.js"></script>
+		<script type="text/javascript">
+			var emulator = new RetroJolt( {
+				loadingImg: '../../src/loading.gif',
+				scale: 2,
+				js: '../../drivers/mameamstrad.js',
+				driver: 'cpc6128',
+				bios: [ './cpc6128.zip', './cpc464.zip' ],
+				cfg: '../../cfg/amstrad.cfg',
+				peripherals: [ 'flop1' ],
+				resolution: [ 384, 272 ],
+				rom: './zrealms.dsk',
+				args: ['-ab', 'run"zrealms\\n', "-autoboot_delay", "2" ],
+			} );
+		</script>
+	</body>
+</html>
