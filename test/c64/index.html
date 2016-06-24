@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>test</title>
+	</head>
+	<body>
+		<canvas id="emulator-target" style="width: 50%; height: 50%; display: block; margin: 0 auto;"></canvas>
+		<script type="text/javascript" src="../../build/retrojolt.js"></script>
+		<script type="text/javascript">
+			var emulator = new RetroJolt( {
+				loadingImg: '../../src/loading.gif',
+				scale: 2,
+				js: '../../drivers/mamec64.js',
+				driver: 'c64',
+				bios: [ './c64.zip', './c1541.zip' ],
+				cfg: '../../cfg/c64.cfg',
+				peripherals: [ 'quik' ],
+				resolution: [ 418, 235 ],
+				rom: './sys4096.prg',
+				args: ['-ab', 'sys4096\\n', "-autoboot_delay", "4" ],
+			} );
+		</script>
+	</body>
+</html>
