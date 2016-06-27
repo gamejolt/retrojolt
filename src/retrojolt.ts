@@ -38,6 +38,14 @@ class RetroJolt
 {
 	private emulator: any;
 
+	static getFilenameFromUrl( url: string )
+	{
+		// The last piece after the /.
+		// Then remove anything after a ?.
+		// Then remove anything after a #.
+		return url.split( '/' ).pop().split( '?' )[0].split( '#' )[0];
+	}
+
 	constructor( options: Options )
 	{
 		const defaults = {
@@ -47,7 +55,7 @@ class RetroJolt
 		};
 
 		const config = extend( defaults, options );
-		const romFile = config.rom.split( '/' ).pop();
+		const romFile = RetroJolt.getFilenameFromUrl( config.rom );
 		let args: any[] = [];
 
 		// Emularity saves files to an indexeddb and it makes it really hard
@@ -61,7 +69,7 @@ class RetroJolt
 
 		if ( config.bios ) {
 			for ( let i = 0; i < config.bios.length; ++i ) {
-				const biosFile = config.bios[ i ].split( '/' ).pop();
+				const biosFile = RetroJolt.getFilenameFromUrl( config.bios[ i ] );
 				args.push( JSMESSLoader.mountFile( biosFile, JSMESSLoader.fetchFile( 'Bios File (' + (i + 1) + ')', config.bios[ i ] ) ) );
 			}
 		}
