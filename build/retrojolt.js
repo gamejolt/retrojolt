@@ -3995,7 +3995,7 @@ var RetroJolt = (function () {
             loadingImg: 'loading.gif',
         };
         var config = extend(defaults, options);
-        var romFile = config.rom.split('/').pop();
+        var romFile = RetroJolt.getFilenameFromUrl(config.rom);
         var args = [];
         window.indexedDB.deleteDatabase('emularity');
         args.push(JSMESSLoader.driver(config.driver));
@@ -4003,7 +4003,7 @@ var RetroJolt = (function () {
         args.push(JSMESSLoader.emulatorJS(config.js));
         if (config.bios) {
             for (var i = 0; i < config.bios.length; ++i) {
-                var biosFile = config.bios[i].split('/').pop();
+                var biosFile = RetroJolt.getFilenameFromUrl(config.bios[i]);
                 args.push(JSMESSLoader.mountFile(biosFile, JSMESSLoader.fetchFile('Bios File (' + (i + 1) + ')', config.bios[i])));
             }
         }
@@ -4028,5 +4028,8 @@ var RetroJolt = (function () {
             .setSplashImage(config.loadingImg)
             .start();
     }
+    RetroJolt.getFilenameFromUrl = function (url) {
+        return url.split('/').pop().split('?')[0].split('#')[0];
+    };
     return RetroJolt;
 }());
