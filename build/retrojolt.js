@@ -1,3 +1,11 @@
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 /*!
  * @overview es6-promise - a tiny implementation of Promises/A+.
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
@@ -3966,27 +3974,6 @@ var Module = null;
 })(typeof Promise === 'undefined' ? ES6Promise.Promise : Promise);
 var JSMESS = JSMESS || {};
 JSMESS.ready = function (f) { f(); };
-function extend(target) {
-    var objects = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        objects[_i - 1] = arguments[_i];
-    }
-    if (target == null) {
-        throw new TypeError('Cannot convert undefined or null to object');
-    }
-    target = Object(target);
-    for (var _a = 0, objects_1 = objects; _a < objects_1.length; _a++) {
-        var source = objects_1[_a];
-        if (source != null) {
-            for (var key in source) {
-                if (Object.prototype.hasOwnProperty.call(source, key)) {
-                    target[key] = source[key];
-                }
-            }
-        }
-    }
-    return target;
-}
 var RetroJolt = (function () {
     function RetroJolt(options) {
         var defaults = {
@@ -3994,7 +3981,7 @@ var RetroJolt = (function () {
             target: '#emulator-target',
             loadingImg: 'loading.gif',
         };
-        var config = extend(defaults, options);
+        var config = __assign({}, defaults, options);
         var romFile = RetroJolt.getFilenameFromUrl(config.rom);
         var args = [];
         window.indexedDB.deleteDatabase('emularity');
