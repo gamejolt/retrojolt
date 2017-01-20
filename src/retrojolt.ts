@@ -1,26 +1,7 @@
 declare var JSMESSLoader: any;
 declare var Emulator: any;
 
-function extend( target: any, ...objects: any[] )
-{
-	if ( target == null ) {
-		throw new TypeError( 'Cannot convert undefined or null to object' );
-	}
-
-	target = Object( target );
-	for ( const source of objects ) {
-		if ( source != null ) {
-			for ( var key in source ) {
-				if ( Object.prototype.hasOwnProperty.call( source, key ) ) {
-					target[ key ] = source[ key ];
-				}
-			}
-		}
-	}
-	return target;
-}
-
-interface Options
+interface EmulatorOptions
 {
 	scale?: number;
 	target?: string;
@@ -32,6 +13,7 @@ interface Options
 	resolution: number[];
 	rom: string;
 	bios: string[];
+	args?: string[];
 }
 
 class RetroJolt
@@ -43,10 +25,10 @@ class RetroJolt
 		// The last piece after the /.
 		// Then remove anything after a ?.
 		// Then remove anything after a #.
-		return url.split( '/' ).pop().split( '?' )[0].split( '#' )[0];
+		return url.split( '/' ).pop()!.split( '?' )[0].split( '#' )[0];
 	}
 
-	constructor( options: Options )
+	constructor( options: EmulatorOptions )
 	{
 		const defaults = {
 			scale: 1,
@@ -54,7 +36,7 @@ class RetroJolt
 			loadingImg: 'loading.gif',
 		};
 
-		const config = extend( defaults, options );
+		const config = { ...defaults, ...options };
 		const romFile = RetroJolt.getFilenameFromUrl( config.rom );
 		let args: any[] = [];
 
